@@ -1,54 +1,50 @@
-# 1.2- Herència i Polimorfisme - Nivell 1
+# S1.02- Exceptions
+This repository contains a set of Java exercises focused on fundamental object-oriented programming concepts, exception handling, and user input validation. The content is organized into 
+three levels:
 
+## Level 1 – Product Sale and Custom Exceptions
+### Exercise 1:
+Implementation of two classes: Product and Sale. The Sale class contains a list of products and calculates the total price. It includes a custom exception EmptySaleException that is thrown 
+when attempting to calculate the total of an empty product list.
 
+## Level 2 – Input Handling with Scanner and Exceptions
+### Exercise 1:
+Creation of a utility class Entrada with static methods to read various types of input from the keyboard (byte, int, float, double, char, String, and yes/no boolean), using Java’s Scanner.
+Built-in exceptions like InputMismatchException are handled to ensure correct data entry. Custom exceptions are used to validate specific inputs, ensuring robustness and user-friendly feedback.
 
-Crea una classe anomenada "Producte" amb els atributs nom i preu, i una altra classe anomenada "Venda". Aquesta classe 
-té com a atributs una col·lecció de productes i el preu total de la venda.
+## Level 3 – Cinema Seat Reservation System
+### Exercise 1:
+A complete console application simulating a cinema ticket booking system. The user can configure the number of rows and seats, view and manage seat reservations, and cancel bookings.
+The program is structured into several classes (Cinema, Seat, SeatManager, CinemaManager) and uses multiple custom exceptions to validate user input.
 
-La classe "Venda", té un mètode anomenat calcularTotal() que llança l’excepció personalitzada "VendaBuidaException" 
-i mostra per pantalla “Per fer una venda primer has d’afegir productes” si la col·lecció de productes està buida. Si 
-la col·lecció té productes, llavors ha de recórrer la col·lecció i guardar la suma de tots els preus dels productes a 
-l’atribut preu total de la venda.
-
-L’excepció personalitzada "VendaBuidaException" ha de ser filla de la classe Exception. Al seu constructor li hem de 
-passar el missatge  “Per fer una venda primer has d’afegir productes” i quan capturem l’excepció, l’hem de mostrar per
-pantalla amb el mètode getMessage() de l’excepció.
-
-Escriu el codi necessari per a generar i capturar una excepció de tipus "IndexOutOfBoundsException";
-
-
-
-## Tecnologies Utilizades
+## Technologies Used
 * Java
 * IntelliJ
 * Git
 
-## Requisits
+## Requirements
 * Java 17
-* IntelliJ (opcional)
+* IntelliJ (optional)
 
-## Instal·lació
+## Installation
 
-1. Clona el repositori:
+1. Clone the repository:
 ```
 git clone https://github.com/mxg912/1.1_Herencia_Polimorfisme.git
 ```
-2. Obre el projecte amb IntelliJ IDEA.
+2. Open the project with IntelliJ IDEA.
 
-3. Executa la classe nivell1.app.Main.java.
+3. Run the class `nivell1.app.Main.java`.
 
-## Execució
+## Execution
 
-## Desplegament
+## Deployment
 
-## Contribucions
-El projecte ignora .idea/ .out/  .iml i .repository_token.
+## Contributions
+The project ignores `.idea/`, `.out/`, `.iml`.
 
-1. Fes un fork del repositori
-2. Crea una nova branca   git checkout -b feature/NovaFuncionalitat
-3. Fes els teus canvis i commiteja'ls:   git commit -m 'Afegeix Nova Funcionalitat'
-4. Puja els canvis a la teva branca:   git push origin feature/NovaFuncionalitat
-5. Fes un pull request
-
-## Autor
-* @mxg912
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature/NewFeature`
+3. Make your changes and commit them: `git commit -m 'Add New Feature'`
+4. Push the changes to your branch: `git push origin feature/NewFeature`
+5. Open a pull request
