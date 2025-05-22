@@ -14,8 +14,7 @@ public class Entrada {
 
     }
 
-    //Excepcions personalitzades
-    public static char llegirChar(String message) throws InvalidDataException{
+    public static char llegirChar(String message){
         while(true){
             System.out.println(message);
             String input = scanner.next();
@@ -31,7 +30,7 @@ public class Entrada {
         }
     }
 
-    public static String llegirString(String message) throws InvalidDataException {
+    public static String llegirString(String message) {
         while (true) {
             System.out.println(message);
             String input = scanner.next();
@@ -46,7 +45,7 @@ public class Entrada {
         }
     }
 
-    public static boolean llegirSiNo(String message) throws InvalidDataException {
+    public static boolean llegirSiNo(String message)  {
         while (true) {
             try {
                 System.out.println(message);
@@ -65,15 +64,12 @@ public class Entrada {
         }
     }
 
-    //Excepcions no personalitzats
+
     public static byte llegirByte(String message){
         while(true){
             try{
                 System.out.println(message);
                 byte input = scanner.nextByte();
-                if (input < 1 || input > 31) {
-                    throw  new InputMismatchException();
-                }
                 return input;
 
             } catch (InputMismatchException e){
