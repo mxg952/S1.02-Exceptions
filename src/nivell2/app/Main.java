@@ -18,7 +18,7 @@ public class Main {
         System.out.println("Resposta usuari: " +inputString);
 
         boolean inputBoolean = entrada.llegirSiNo("Are you older than 18 years? Ansewer with 'y' for YES or 'n' for NO.");
-        System.out.println("Resposta usuari: " + ((!inputBoolean)? "Si": "No"));
+        System.out.println("Resposta usuari: " + ((inputBoolean)? "Si": "No"));
 
         byte inputByte = entrada.llegirByte("Enter a number:");
         System.out.printf("Resposta usuari: " + inputByte);

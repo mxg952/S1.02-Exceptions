@@ -30,7 +30,7 @@ The program is structured into several classes (Cinema, Seat, SeatManager, Cinem
 
 1. Clone the repository:
 ```
-git clone https://github.com/mxg912/1.1_Herencia_Polimorfisme.git
+https://github.com/mxg952/S1.02-Exceptions.git
 ```
 2. Open the project with IntelliJ IDEA.
 

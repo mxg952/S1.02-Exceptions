@@ -51,10 +51,10 @@ public class Entrada {
                 System.out.println(message);
                 String input = scanner.next();
 
-                if (!input.equalsIgnoreCase("n")) {
-                    return false;
-                } else if (input.equalsIgnoreCase("s")) {
+                if (input.equalsIgnoreCase("y")) {
                     return true;
+                } else if (input.equalsIgnoreCase("n")) {
+                    return false;
                 } else  {
                     throw new InvalidDataException();
                 }
@@ -85,12 +85,12 @@ public class Entrada {
                 System.out.println(message);
                 int input = scanner.nextInt();
 
-                if (input < 0 || input > 140) {
+                if (input < 0 || input > 125) {
                     throw new InputMismatchException();
                 }
                 return  input;
             } catch (InputMismatchException e){
-                System.out.println("Format error. You must introduce a vàlid integer numer.");
+                System.out.println("Format error. You must introduce a vàlid integer number.");
                 scanner.nextLine();
             }
         }
@@ -101,9 +101,6 @@ public class Entrada {
             try{
                 System.out.println(message);
                 float input = scanner.nextFloat();
-                if (input < 0) {
-                    throw new InputMismatchException();
-                }
                 return input;
 
             } catch (InputMismatchException e){

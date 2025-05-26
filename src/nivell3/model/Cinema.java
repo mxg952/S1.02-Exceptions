@@ -2,18 +2,16 @@ package nivell3.model;
 
 import nivell3.appManager.CinemaManager;
 import nivell3.appManager.SeatManager;
+import nivell3.exceptions.BusySeatException;
 
-import javax.xml.transform.Source;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Cinema {
-
     private int rowsNum;
     private int seatsNum;
     private SeatManager seatManager;
     private CinemaManager cinemaManager;
-    private Scanner sc  = new Scanner(System.in);
+    private Scanner sc = new Scanner(System.in);
 
     public Cinema() {
         this.seatManager = new SeatManager();
@@ -33,11 +31,33 @@ public class Cinema {
         return seatManager;
     }
 
-    public CinemaManager getCinemaManager() {
-        return cinemaManager;
+    public void requestInitialData() {
+        while (true) {
+            System.out.print("Enter the number of cinema rows: ");
+            if (sc.hasNextInt()) {
+                rowsNum = sc.nextInt();
+                if (rowsNum > 0) break;
+                else System.out.println("The number of rows must be greater than zero.");
+            } else {
+                System.out.println("Invalid input. Please enter a whole number.");
+                sc.next();
+            }
+        }
+        while (true) {
+            System.out.print("Enter the number of seats per row: ");
+            if (sc.hasNextInt()) {
+                seatsNum = sc.nextInt();
+                if (seatsNum > 0) break;
+                else System.out.println("The number of seats must be greater than zero.");
+            } else {
+                System.out.println("Invalid input. Please enter a whole number.");
+                sc.next();
+            }
+        }
+
     }
 
-    public void start() {
+    public void start() throws BusySeatException {
         int menuOption;
         do {
             menuOption = CinemaManager.menu();
@@ -55,7 +75,8 @@ public class Cinema {
                     cinemaManager.cancelSeat();
                     break;
                 case 5:
-                    cinemaManager.cancelPersonBook();
+                    String personsName = cinemaManager.introducePerson();
+                    cinemaManager.cancelPersonBook(personsName);
                     break;
                 case 6:
                     System.out.println("Bye bye...");
@@ -64,16 +85,5 @@ public class Cinema {
                     System.out.println("Invàlid option.");
             }
         } while (menuOption != 6);
-
-    }
-
-    public void requestInitialData(){
-        System.out.println("\nIntroduce the number of seats in the cinema: ");
-        this.seatsNum = sc.nextInt();
-        sc.nextLine();
-
-        System.out.println("\nIntroduce the number of rows in the cinema: ");
-        this.rowsNum = sc.nextInt();
-        sc.nextLine();
     }
 }

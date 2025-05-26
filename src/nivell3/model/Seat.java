@@ -1,5 +1,7 @@
 package nivell3.model;
 
+import nivell3.appManager.SeatManager;
+
 public class Seat {
 
     private int row;
@@ -28,11 +30,12 @@ public class Seat {
         return this.namePerson;
     }
 
-    public boolean equals(int row, int seat){
-        if (row == this.getRow() && seat == this.getSeat()) {
-            return true;
-        }
-        return false;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Seat other = (Seat) obj;
+        return this.row == other.row && this.seat == other.seat;
     }
 
     public String toString() {
