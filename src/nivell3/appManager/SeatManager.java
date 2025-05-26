@@ -19,7 +19,7 @@ public class SeatManager {
     }
 
     public void addSeat(Seat seat) throws BusySeatException {
-        int seatPosition = findSeat(seat.getRow(), seat.getSeat());
+        int seatPosition = findSeatIndex(seat.getRow(), seat.getSeat());
         if (seatPosition != -1) {
             throw new BusySeatException();
         } else {
@@ -30,7 +30,7 @@ public class SeatManager {
 
     public void removeSeat(int row, int seat) {
         try {
-            int index = findSeat(row, seat);
+            int index = findSeatIndex(row, seat);
             if (index == -1) {
                 throw new FreeSeatException();
             } else {
@@ -41,10 +41,12 @@ public class SeatManager {
         }
     }
 
-    public int findSeat(int row, int seat) {
+    public int findSeatIndex(int row, int seat) {
         int seatIndex = -1;
+        Seat seatSearched = new Seat(row, seat, "");
+
         for (int i = 0; i < seats.size(); i++) {
-            if ((seats.get(i).getRow() == row && seats.get(i).getSeat() == seat)) {
+            if (seats.get(i).equals(seatSearched)) {
                 seatIndex = i;
             }
         }

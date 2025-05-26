@@ -8,6 +8,7 @@ import nivell3.model.Cinema;
 import nivell3.model.Seat;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -85,19 +86,19 @@ public class CinemaManager {
         ArrayList<Seat> seats = cinema.getSeatManager().getSeats();
         int row = introduceRow();
         int seat = introduceSeat();
-        boolean removeSeat = false;
+        boolean isBooked = false;
 
         for (int i = 0; i < seats.size(); i++) {
             Seat s = seats.get(i);
             if (s.getSeat() == seat && s.getRow() == row) {
-                removeSeat = true;
+                isBooked = true;
                 cinema.getSeatManager().removeSeat(row, seat);
                 System.out.println("Seat booking cancel·led.");
                 break;
             }
         }
 
-        if (!removeSeat) {
+        if (!isBooked) {
             System.out.println("This seat is not reserved.");
         }
 
@@ -152,6 +153,9 @@ public class CinemaManager {
                 }
             } catch (RowInvalidExeption e) {
                 System.out.println(e.getMessage());
+            } catch (InputMismatchException e) {
+                System.out.println("You must enter a valid integer.");
+                sc.nextLine();
             }
         }
     }
@@ -171,6 +175,9 @@ public class CinemaManager {
             } catch (SeatInvalidException e) {
                 System.out.println(e.getMessage());
 
+            } catch (InputMismatchException e) {
+                System.out.println("You must enter a valid integer.");
+                sc.nextLine(); // neteja el buffer per evitar bucle infinit
             }
         }
     }
